@@ -99,12 +99,33 @@
   "resolved" "https://registry.npmjs.org/@rushstack/eslint-patch/-/eslint-patch-1.1.0.tgz"
   "version" "1.1.0"
 
+"@types/chunk@^0.0.0":
+  "integrity" "sha512-8z7Z9E1UoxUfwb4SUuWZZCAa5T+vi2daACygqUed7NpPnq04CJo0L3l0heHh3R9fLi/pOUbfR/ZwHd2+YEQIxg=="
+  "resolved" "https://registry.npmjs.org/@types/chunk/-/chunk-0.0.0.tgz"
+  "version" "0.0.0"
+
+"@types/docker-modem@*":
+  "integrity" "sha512-qC7prjoEYR2QEe6SmCVfB1x3rfcQtUr1n4x89+3e0wSTMQ/KYCyf+/RAA9n2tllkkNc6//JMUZePdFRiGIWfaQ=="
+  "resolved" "https://registry.npmjs.org/@types/docker-modem/-/docker-modem-3.0.2.tgz"
+  "version" "3.0.2"
+  dependencies:
+    "@types/node" "*"
+    "@types/ssh2" "*"
+
+"@types/dockerode@^3.3.3":
+  "integrity" "sha512-DBFTE/wiZKodQhDrdkzLVT3K0X1JO/1fTxPaTQN0jiPNdTOFoPt8LYnuYEzalPgVpZbGEeuJTls7qn6jMvuydg=="
+  "resolved" "https://registry.npmjs.org/@types/dockerode/-/dockerode-3.3.3.tgz"
+  "version" "3.3.3"
+  dependencies:
+    "@types/docker-modem" "*"
+    "@types/node" "*"
+
 "@types/json5@^0.0.29":
   "integrity" "sha1-7ihweulOEdK4J7y+UnC86n8+ce4="
   "resolved" "https://registry.npmjs.org/@types/json5/-/json5-0.0.29.tgz"
   "version" "0.0.29"
 
-"@types/node@17.0.15":
+"@types/node@*", "@types/node@17.0.15":
   "integrity" "sha512-zWt4SDDv1S9WRBNxLFxFRHxdD9tvH8f5/kg5/IaLFdnSNXsDY4eL3Q3XXN+VxUnWIhyVFDwcsmAprvwXoM/ClA=="
   "resolved" "https://registry.npmjs.org/@types/node/-/node-17.0.15.tgz"
   "version" "17.0.15"
@@ -127,6 +148,21 @@
   "integrity" "sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew=="
   "resolved" "https://registry.npmjs.org/@types/scheduler/-/scheduler-0.16.2.tgz"
   "version" "0.16.2"
+
+"@types/ssh2-streams@*":
+  "integrity" "sha512-I2J9jKqfmvXLR5GomDiCoHrEJ58hAOmFrekfFqmCFd+A6gaEStvWnPykoWUwld1PNg4G5ag1LwdA+Lz1doRJqg=="
+  "resolved" "https://registry.npmjs.org/@types/ssh2-streams/-/ssh2-streams-0.1.9.tgz"
+  "version" "0.1.9"
+  dependencies:
+    "@types/node" "*"
+
+"@types/ssh2@*":
+  "integrity" "sha512-aIq7ownezauW/+VWYaeXwd5J1Evnn4EXyeKi7bT3H6ZLBLoqsmhdvkHYPLpnZPM6unKKKsxTHIyQAVOZnPiJBw=="
+  "resolved" "https://registry.npmjs.org/@types/ssh2/-/ssh2-0.5.51.tgz"
+  "version" "0.5.51"
+  dependencies:
+    "@types/node" "*"
+    "@types/ssh2-streams" "*"
 
 "@typescript-eslint/parser@^5.0.0":
   "integrity" "sha512-JaNYGkaQVhP6HNF+lkdOr2cAs2wdSZBoalE22uYWq8IEv/OVH0RksSGydk+sW8cLoSeYmC+OHvRyv2i4AQ7Czg=="

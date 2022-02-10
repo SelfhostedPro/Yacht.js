@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { Stream } from 'stream';
 import { chunk } from '@types/chunk'
 import { servers } from '../servers';
+import { Stream } from 'stream';
 /**
  * Manage Containers
  * @route `/api/container/${server}/${containerId}/${command}`
@@ -36,7 +36,7 @@ const manageContainers = async (req: NextApiRequest, res: NextApiResponse) => {
           }
           case 'remove': {
             containerInfo.State.Status === 'running' &&
-              (await container.stop().then(async (_) => await container.remove()));
+              (await container.stop().then(async () => await container.remove()));
             containerInfo.State.Status === 'exited' && (await container.remove());
             resMessage = `Container ${containerId} on ${serverName} removed.`;
             break;
@@ -61,8 +61,8 @@ const manageContainers = async (req: NextApiRequest, res: NextApiResponse) => {
             res.setHeader('Cache-Control', 'no-cache, no-transform');
             res.setHeader('X-Accel-Buffering', 'no');
             const stream = require('stream');
-            var inStream;
             sse = true
+            let inStream = <NodeJS.ReadableStream>{}
             const logStream = new stream.PassThrough();
 
             logStream.on('data', (chunk: chunk) => {
@@ -73,16 +73,16 @@ const manageContainers = async (req: NextApiRequest, res: NextApiResponse) => {
               follow: true,
               stdout: true,
               stderr: true,
+              tail: 100
             })
-            .then(logs => {
-              console.log(logs)
-              inStream = logs;
-              return container.modem.demuxStream(logs, logStream, logStream)
-            })
+              .then(logs => {
+                inStream = logs;
+                return container.modem.demuxStream(logs, logStream, logStream)
+              })
 
-            res.socket?.on('end', e => {
+            res.socket?.on('end', () => {
               if (inStream) {
-                inStream.destroy()
+                logStream.end()
               }
               logStream.end()
               res.end('done\n')
